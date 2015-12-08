@@ -7,11 +7,11 @@
     {
         static void Main(string[] args)
         {
-            if ((args.Length != 2) || (args[0][0] != '-'))
+            if (args.Length < 2)
             {
-                Console.WriteLine("httptool -command <url>\n");
-                Console.WriteLine("Commands:");
-                Console.WriteLine("\t-head - sends HEAD command and prints response HTTP headers");
+                Console.WriteLine("httptool <http method> <url> [-options]\n");
+                Console.WriteLine("HTTP methods:");
+                Console.WriteLine("\thead - sends HEAD command and prints response HTTP headers");
                 return;
             }
 
@@ -19,7 +19,7 @@
 
             switch (args[0].ToLower())
             {
-                case "-head":
+                case "head":
                     Head(url);
                     break;
             }
